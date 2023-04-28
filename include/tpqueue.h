@@ -40,8 +40,8 @@ template <typename T>
 void TPQueue<T>::addTail(const T& val) {
         Node *node = create(val);
         tail->next = node;
-        temp->prev = tail;
-        tail = temp;
+        node->prev = tail;
+        tail = node;
 }
 
 template <typename T>
