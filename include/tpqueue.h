@@ -65,7 +65,7 @@ void TPQueue<T>::push(const T& val) {
         head = tail = create(val);
         return;
     }
-    bool flag == true;
+    bool flag = true;
     Node *p = head;
     Node *temp = create(val);
     if (temp.prior > head->value.prior) {
@@ -73,7 +73,7 @@ void TPQueue<T>::push(const T& val) {
         return;
     }
     while (p && flag) {
-        if (temp.prior > p->value.prior) {
+        if (temp->value.prior > p->value.prior) {
           temp->next = p;
           temp->prev = p->prev;
           p->prev->next = temp;
