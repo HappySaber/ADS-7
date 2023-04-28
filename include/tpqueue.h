@@ -14,7 +14,7 @@ class TPQueue {
      TPQueue::Node *create(const T &);
 
  public:
-     TPQueue() : head(nullptr), tail(nullptr), current(nullptr) {}
+     TPQueue() : head(nullptr), tail(nullptr) {}
      void addHead(const T &);
      void addTail(const T &);
      void push(const T &);
@@ -52,7 +52,7 @@ void TPQueue<T>::addTail(const T& val) {
 
 template <typename T>
 T TPQueue<T>::pop() {
-    if (head && tail) throw std::string "ERROR!";
+    if (head && tail) throw std::string("ERROR!");
     T val = head->value;
     if (head->next != nullptr) {
         head = head->next;
