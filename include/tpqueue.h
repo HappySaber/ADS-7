@@ -24,7 +24,7 @@ template<typename T>
 typename TPQueue<T>::Node* TPQueue<T>::create(const T& val) {
     Node *node = new Node;
     node *value = val;
-    node->next = item->prev = nullptr;
+    node->next = node->prev = nullptr;
     return node;
 }
 
