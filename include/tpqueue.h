@@ -6,11 +6,11 @@
 template <typename T>
 class TPQueue {
  private:
-	 struct Node {
+     struct Node {
          T value;
          Node *prev, *next;
      };
-     Node *head, *tail,*current;
+     Node *head, *tail;
      TPQueue::Node *create(const T &);
 
  public:
@@ -23,7 +23,7 @@ class TPQueue {
 template<typename T>
 typename TPQueue<T>::Node* TPQueue<T>::create(const T& val) {
     Node *node = new Node;
-    node *value = val;
+    node->value = val;
     node->next = node->prev = nullptr;
     return node;
 }
@@ -68,7 +68,7 @@ void TPQueue<T>::push(const T& val) {
     bool flag = true;
     Node *p = head;
     Node *temp = create(val);
-    if (temp.prior > head->value.prior) {
+    if (temp->value.prior > head->value.prior) {
         addHead(val);
         return;
     }
