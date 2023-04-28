@@ -1,6 +1,7 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <string>
 
 template <typename T>
 class TPQueue {
@@ -28,7 +29,7 @@ typename TPQueue<T>::Node* TPQueue<T>::create(const T& val) {
 }
 
 template <typename T>
-void TPQueue<T>::addHead(const T&) {
+void TPQueue<T>::addHead(const T& val) {
     if (head && tail) {
         Node *node = create(val);
         node->next = head;
@@ -40,7 +41,7 @@ void TPQueue<T>::addHead(const T&) {
 }
 
 template <typename T>
-void TPQueue<T>::addTail(const T&) {
+void TPQueue<T>::addTail(const T& val) {
     if (head && tail) {
         tail->next = create(val);
         tail->next->prev = tail;
@@ -82,7 +83,7 @@ void TPQueue<T>::push(const T& val) {
         }
         p = p->next;
     }
-    if (flag) addTail(val);
+    if (flag == true) addTail(val);
 }
 
 struct SYM {
