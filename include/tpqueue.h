@@ -30,38 +30,34 @@ typename TPQueue<T>::Node* TPQueue<T>::create(const T& val) {
 
 template <typename T>
 void TPQueue<T>::addHead(const T& val) {
-    if (head && tail) {
         Node *node = create(val);
         node->next = head;
-        node->next->prev = node;
+        head->prev = node;
         head = node;
-    } else {
-        head = tail = create(val);
-    }
 }
 
 template <typename T>
 void TPQueue<T>::addTail(const T& val) {
-    if (head && tail) {
-        tail->next = create(val);
-        tail->next->prev = tail;
-    } else {
-        head = tail = create(val);
-    }
+        Node *node = create(val);
+        tail->next = node;
+        temp->prev = tail;
+        tail = temp;
 }
 
 template <typename T>
 T TPQueue<T>::pop() {
-    if (head && tail) throw std::string("ERROR!");
+    if (head == nullptr) throw std::string("ERROR!");
     T val = head->value;
+    Node *temp = head->next;
     if (head->next != nullptr) {
         head = head->next;
+        delete head->prev;
     }
     return val;
 }
 template <typename T>
 void TPQueue<T>::push(const T& val) {
-    if (head == tail) {
+    if (head == nullptr) {
         head = tail = create(val);
         return;
     }
